@@ -1,6 +1,7 @@
 body {
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: small;
+	padding: 0;
 }
 
 #container {
@@ -15,10 +16,18 @@ textarea {
 
 #input-div {
 	border-bottom: 1px solid #000;
+	padding-top: 0px!important;
 }
 
 #input-div, #output-div {
 	padding: 30px;
+}
+
+#ablurb {
+	font-size: 60px;
+	color: #CC6600;
+	text-align: center;
+	margin-top: 5px;
 }
 
 h2 {
@@ -35,3 +44,5 @@ hr {
 	border-style: dashed none none none;
 	background-color: white;
 }
+
+#moreinfo { display: none; }

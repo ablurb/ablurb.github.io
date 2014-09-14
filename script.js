@@ -23,16 +23,27 @@ function nl2br(str, is_xhtml) {
 function updateResult()
 {
 	input = $('#input').val();
+  initialInput = input;
 
 	input = nl2br(input);
 	input = strip_tags(input, '<b><br><em><font><h1><h2><h3><h4><h5><h6><hr><i><li><ol><p><pre><s><strike><strong><sub><sup><u><ul>');
 
 	$('#output').html(input);
-	localStorage.setItem('abp_blurb', input);
+	localStorage.setItem('abp_blurb', initialInput);
 }
 
 $(document).ready(function() {
 	$('#input').val(localStorage.getItem('abp_blurb'));
 	updateResult();
-	$('#input').keyup(function() { updateResult(); });
+
+	$('#input').keyup(function() { 
+    updateResult(); 
+    $('#intro,#ablurb').slideUp();
+    $('#moreinfo').show();
+  });
+
+  $('#moreinfo').click(function() {
+    $(this).hide();
+    $('#intro, #ablurb').slideDown();
+  });
 });
